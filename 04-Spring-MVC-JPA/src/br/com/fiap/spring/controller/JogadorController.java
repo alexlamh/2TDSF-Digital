@@ -11,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import br.com.fiap.jpa.dao.JogadorDAO;
+import br.com.fiap.jpa.exception.IdNotFoundException;
 import br.com.fiap.jpa.model.Jogador;
 
 @Controller
@@ -19,6 +20,19 @@ public class JogadorController {
 
 	@Autowired
 	private JogadorDAO dao;
+	
+	@Transactional
+	@PostMapping("excluir")
+	public String processsarExcluir(int codigo, RedirectAttributes r) {
+		try {
+			dao.remover(codigo);
+			r.addFlashAttribute("msg", "Jogador removido!");
+		} catch (IdNotFoundException e) {
+			e.printStackTrace();
+			r.addFlashAttribute("msg", "Erro..");
+		}
+		return "redirect:/jogador/listar";
+	}
 	
 	@Transactional
 	@PostMapping("editar")
