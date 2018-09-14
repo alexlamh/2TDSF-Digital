@@ -20,8 +20,8 @@
 			<form:input path="dataNascimento" cssClass="form-control"/>
 		</div>
 		<div class="form-group">
-			<form:checkbox path="ativo"/>
 			<form:label path="ativo">Ativo</form:label>
+			<form:checkbox path="ativo"/>
 		</div>
 		<input type="submit" value="Editar" class="btn btn-primary">
 	</form:form>

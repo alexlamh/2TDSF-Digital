@@ -27,7 +27,7 @@
 			<tr>
 				<td>${j.codigo }</td>
 				<td>${j.nome }</td>
-				<td>${j.ativo }</td>
+				<td>${j.ativo?"Sim":"Não" }</td>
 				<td>
 					<fmt:formatDate value="${j.dataNascimento.time }"
 						pattern="dd/MM/yyyy"/>
@@ -38,12 +38,39 @@
 					<button onclick="codigoJogador.value = ${j.codigo}" type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal">
 					  Excluir
 					</button>
+					<button ${j.ativo?"disabled":"" } onclick="codigoJogador2.value = ${j.codigo}" type="button" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="#exampleModal2">
+					  Ativar Jogador
+					</button>
 				</td>
 			</tr>
 		</c:forEach>
 	</table>
 
-<!-- Modal -->
+<!-- Modal de ativação -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Confirmação</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Deseja realmente ativar o jogador?
+      </div>
+      <div class="modal-footer">
+      	<form action="<c:url value="/jogador/ativar"/>" method="post">
+      		<input type="hidden" name="codigo" id="codigoJogador2">
+	        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+	        <button type="submit" class="btn btn-success">Ativar</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal de exclusão -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
