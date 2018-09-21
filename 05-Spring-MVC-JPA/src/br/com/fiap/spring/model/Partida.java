@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @SequenceGenerator(name="partida",allocationSize=1)
 public class Partida {
@@ -16,6 +18,7 @@ public class Partida {
 	@GeneratedValue(generator="partida",strategy=GenerationType.SEQUENCE)
 	private int codigo;
 	
+	@DateTimeFormat(pattern="dd/MM/yyyy")
 	private Calendar data;
 	
 	private String timeA;
