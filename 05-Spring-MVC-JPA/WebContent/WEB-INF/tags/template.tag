@@ -10,6 +10,7 @@
 <title>${titulo } | Spring MVC</title>
 <link rel="stylesheet" type="text/css" 
 	href="<c:url value="/resources/css/bootstrap.min.css"/>">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">	
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -28,11 +29,11 @@
       </li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Jogador
+          Partida
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="<c:url value="/jogador/cadastrar"/>">Cadastrar</a>
-          <a class="dropdown-item" href="<c:url value="/jogador/listar"/>">Listar</a>
+          <a class="dropdown-item" href="<c:url value="/partida/cadastrar"/>">Cadastrar</a>
+          <a class="dropdown-item" href="<c:url value="/partida/listar"/>">Listar</a>
           <a class="dropdown-item" href="#">Another action</a>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
@@ -42,9 +43,9 @@
         <a class="nav-link disabled" href="#">Disabled</a>
       </li>
     </ul>
-    <c:url value="/jogador/buscar" var="acao"/>
+    <c:url value="/partida/buscar" var="acao"/>
     <form action="${acao}" class="form-inline my-2 my-lg-0">
-      <input name="nome" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <input name="nome" class="form-control mr-sm-2" type="search" placeholder="Time" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>
   </div>
